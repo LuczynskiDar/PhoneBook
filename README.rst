@@ -1,16 +1,19 @@
 ====================
-ksiazka_telefoniczna
+Książka Telefoniczna
 ====================
 
 
-Add a short description here!
-
+Książka Telefoniczna, a phone book, is a qualification project,
+from high-level programming languages course.
 
 Description
 ===========
 
-A LONGER DESCRIPTION OF YOUR PROJECT GOES HERE...
-
+The phone book from the polish context menu, picks up new data and keeps
+it in local data base, run on SQL lite. A user can search for the
+contacts, switch the data base or import/export data from the
+csv file. The phone book contains such data as: Name, Surname,
+Telephone, Street, Flat/House Number, Postal Code  and Email.
 
 Note
 ====

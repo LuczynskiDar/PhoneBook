@@ -1,0 +1,15 @@
+{
+    "START_DB": "jeszcze nowsza.db",
+    "START_FILE": "ksiazka_telefoniczna.csv",
+    "TABLE_NAME": "KSIAZKA_TEL",
+    "TABLE": [
+        "Imi\u0119",
+        "Nazwisko",
+        "Telefon",
+        "Ulica",
+        "Numer",
+        "Miasto ",
+        "Kod pocztowy",
+        "Email"
+    ]
+}

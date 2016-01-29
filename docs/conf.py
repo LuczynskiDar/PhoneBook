@@ -85,7 +85,16 @@ release = ''  # Is set by calling `setup.py docs`
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+# print(module_dir)
+# print(cmd_line)
+
+
+#nok
+# exclude_patterns = ['_build',module_dir + '/cfg/',module_dir + '/db/', module_dir + '/csv/']
+
+# exclude_patterns = ['_build','/cfg/','/db/','/csv/']
+# exclude_patterns = ['_build','ksiazka_telefoniczna/cfg/','ksiazka_telefoniczna/db/','ksiazka_telefoniczna/csv/']
+# exclude_patterns = ['_build']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 # default_role = None

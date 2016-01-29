@@ -30,51 +30,13 @@ __license__ = "none"
 _logger = logging.getLogger(__name__)
 
 
-def fib(n):
-    """
-    Fibonacci example function
-
-    :param n: integer
-    :return: n-th Fibonacci number
-    """
-    assert n > 0
-    a, b = 1, 1
-    for i in range(n-1):
-        a, b = b, a+b
-    return a
-
-
-def parse_args(args):
-    """
-    Parse command line parameters
-
-    :param args: command line parameters as list of strings
-    :return: command line parameters as :obj:`airgparse.Namespace`
-    """
-    parser = argparse.ArgumentParser(
-        description="Just a Fibonnaci demonstration")
-    parser.add_argument(
-        '-v',
-        '--version',
-        action='version',
-        version='ksiazka_telefoniczna {ver}'.format(ver=__version__))
-    parser.add_argument(
-        dest="n",
-        help="n-th Fibonacci number",
-        metavar="INT")
-    return parser.parse_args(args)
-
-
-def main(args):
-    args = parse_args(args)
-    print("The {}-th Fibonacci number is {}".format(args.n, fib(args.n)))
-    _logger.info("Script ends here")
-
+from ksiazka_telefoniczna.Console import Console
 
 def run():
-    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-    main(sys.argv[1:])
-
+    '''
+    Function run opens a console window with root menu of Książka Telefoniczna.
+    '''
+    c=Console()
 
 if __name__ == "__main__":
     run()
