@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ksiazka_telefoniczna.OpenFromFile &mdash; ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.post0.dev1+25d096d',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ksiazka_telefoniczna.OpenFromFile</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<div class="viewcode-block" id="OpenFromFile"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.OpenFromFile.OpenFromFile">[docs]</a><span class="k">class</span> <span class="nc">OpenFromFile</span><span class="p">():</span></div>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :parameter _TABLE : Defines the columns in CSV file</span>
+<span class="sd">        :type list</span>
+
+<span class="sd">        Class opens and saves coma separated file: CSV. There</span>
+<span class="sd">        is one class attribute, _TABLE. It is apploaded from the</span>
+<span class="sd">        JSON file.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_TABLE</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;ID&quot;</span><span class="p">,</span> <span class="s">&quot;NAME&quot;</span><span class="p">,</span> <span class="s">&quot;SURNAME&quot;</span><span class="p">,</span> <span class="s">&quot;TELEPHONE&quot;</span><span class="p">,</span> <span class="s">&quot;STREET&quot;</span><span class="p">,</span> <span class="s">&quot;NUMBER&quot;</span><span class="p">,</span> <span class="s">&quot;CITY&quot;</span><span class="p">,</span> <span class="s">&quot;POSTALCODE&quot;</span><span class="p">,</span> <span class="s">&quot;EMAIL&quot;</span><span class="p">]</span>
+    <span class="c"># __TABLE = [&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;]</span>
+    <span class="c"># _TABLE=[&quot;ID&quot;, &quot;NAME&quot;, &quot;SURNAME&quot;, &quot;TELEPHONE&quot;, &quot;STREET&quot;, &quot;NUMBER&quot;, &quot;CITY&quot;, &quot;POSTALCODE&quot;, &quot;EMAIL&quot;]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">set_csv_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">table</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param table: Columns of the CSV file.</span>
+<span class="sd">        :type table: list</span>
+<span class="sd">        Setter of the OpenFromFile class attribute, _Table</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_TABLE</span><span class="o">=</span><span class="n">table</span>
+
+    <span class="k">def</span> <span class="nf">insert_csv_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telephone_book</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span> <span class="c">#opens file</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param telephone_book: An object of the class TelephoneBook</span>
+<span class="sd">        :type telephone_book: TelephoneBook</span>
+<span class="sd">        :param file_name: A path to the CSV filename and filenam</span>
+<span class="sd">        :type file_name: str</span>
+<span class="sd">        Inserts _data into CSV file with predefined quantity of columns.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+                <span class="n">filewriter</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s">&#39;,&#39;</span><span class="p">,</span> <span class="n">lineterminator</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+                <span class="n">filewriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_TABLE</span><span class="p">)</span>
+                <span class="n">t</span><span class="o">=</span><span class="n">telephone_book</span>
+                <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">telephone_book</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                   <span class="n">filewriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">([]))</span>
+        <span class="k">finally</span><span class="p">:</span>
+             <span class="n">csvfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_csv_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telephone_book</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param telephone_book: An oblect of the class TelephoneBook.</span>
+<span class="sd">        :type telephone_book: TelephoneBook</span>
+<span class="sd">        :param file_name: A path to a CSV file and filename.</span>
+<span class="sd">        :type file_name: str</span>
+<span class="sd">        :return: An object of class TelephoneBook.</span>
+<span class="sd">        Gets _data from the CSV file.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="c"># read file row by row</span>
+                <span class="n">row_nr</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c">#Skip the header row.</span>
+                <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span> <span class="c">#row is a type of list</span>
+                    <span class="k">if</span> <span class="n">row_nr</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">telephone_book</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">row_nr</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span>
+                    <span class="c"># Increase the row number</span>
+                    <span class="n">row_nr</span> <span class="o">=</span> <span class="n">row_nr</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="c">#end for</span>
+            <span class="k">return</span> <span class="n">telephone_book</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dariusz Luczynski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ksiazka_telefoniczna.OpenFromSQLite &mdash; ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.post0.dev1+25d096d',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ksiazka_telefoniczna.OpenFromSQLite</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<div class="viewcode-block" id="OpenFromSQLite"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite">[docs]</a><span class="k">class</span> <span class="nc">OpenFromSQLite</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        OpenFromSQLite class includes methods, which create, set and get _data</span>
+<span class="sd">        from tne SQL lite _data base.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">_TABLE_NAME</span> <span class="o">=</span> <span class="s">&#39;KSIAZKA_TEL&#39;</span>
+    <span class="n">_TABLE</span><span class="o">=</span><span class="p">(</span><span class="s">&quot;ID&quot;</span><span class="p">,</span> <span class="s">&quot;NAME&quot;</span><span class="p">,</span> <span class="s">&quot;SURNAME&quot;</span><span class="p">,</span> <span class="s">&quot;TELEPHONE&quot;</span><span class="p">,</span> <span class="s">&quot;STREET&quot;</span><span class="p">,</span> <span class="s">&quot;NUMBER&quot;</span><span class="p">,</span> <span class="s">&quot;CITY&quot;</span><span class="p">,</span> <span class="s">&quot;POSTALCODE&quot;</span><span class="p">,</span> <span class="s">&quot;EMAIL&quot;</span><span class="p">)</span>
+    <span class="c"># __TABLE = [&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="c"># def __getattr__(self, item):</span>
+    <span class="c">#     return self.item</span>
+
+<div class="viewcode-block" id="OpenFromSQLite.get_sql_table"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.get_sql_table">[docs]</a>    <span class="k">def</span> <span class="nf">get_sql_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :returns: TABLE</span>
+<span class="sd">        Gets TABLE, a class attribute from OpenFromSQLite object.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TABLE</span></div>
+
+<div class="viewcode-block" id="OpenFromSQLite.to_table_string"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.to_table_string">[docs]</a>    <span class="k">def</span> <span class="nf">to_table_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :return: str</span>
+<span class="sd">        Prepares a string of columns to by placed in SQL table.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_TABLE</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;,&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_TABLE</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TABLE</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_TABLE</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="OpenFromSQLite.get_data"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.get_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telephone_book</span><span class="p">,</span> <span class="n">db_name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param telephone_book: A empty collection to be reffiled with the data from SQL database.</span>
+<span class="sd">        :type telephone_book: TelephoneBook</span>
+<span class="sd">        :param db_name: Name of the db file.</span>
+<span class="sd">        :type db_name: str</span>
+<span class="sd">        :return: TelephoneBook</span>
+<span class="sd">        Picks the data from SQL table.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_name</span><span class="p">)</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;SELECT &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_table_string</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; from &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TABLE_NAME</span> <span class="o">+</span> <span class="s">&quot;;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+           <span class="n">telephone_book</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">]))</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">telephone_book</span></div>
+
+<div class="viewcode-block" id="OpenFromSQLite.insert_data"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.insert_data">[docs]</a>    <span class="k">def</span> <span class="nf">insert_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telephone_book</span><span class="p">,</span> <span class="n">db_name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param telephone_book: Data to be inserted into SQL database.</span>
+<span class="sd">        :type telephone_book: TelephoneBook</span>
+<span class="sd">        :param db_name: Name of the database</span>
+<span class="sd">        :type db_name:str</span>
+<span class="sd">        :returns: TelephoneBook</span>
+<span class="sd">        Function, wnich inserts data into a SQL database.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_name</span><span class="p">)</span>
+        <span class="n">primaryKey</span><span class="o">=</span><span class="mi">1</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;DELETE FROM &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TABLE_NAME</span> <span class="o">+</span> <span class="s">&quot;;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">telephone_book</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;INSERT INTO &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TABLE_NAME</span> <span class="o">+</span> <span class="s">&quot;(&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_table_string</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span> <span class="o">+</span> <span class="s">&quot; VALUES (&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">primaryKey</span><span class="p">)</span> <span class="o">+</span>\
+                         <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">to_table_values</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;);&quot;</span><span class="p">)</span>
+            <span class="n">primaryKey</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="OpenFromSQLite.create_table"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.create_table">[docs]</a>    <span class="k">def</span> <span class="nf">create_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param dbName: Name of a new database.</span>
+<span class="sd">        :type db_name: str</span>
+<span class="sd">        Creates SQL database.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_name</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;CREATE TABLE &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TABLE_NAME</span> <span class="o">+</span> \
+               <span class="s">&quot;(ID INT PRIMARY KEY     NOT NULL,&quot;</span>
+               <span class="s">&quot;NAME           TEXT    NOT NULL,&quot;</span>
+               <span class="s">&quot;SURNAME        TEXT    NOT NULL,&quot;</span>
+               <span class="s">&quot;TELEPHONE      INT    NOT NULL,&quot;</span>
+               <span class="s">&quot;STREET         TEXT,&quot;</span>
+               <span class="s">&quot;NUMBER         TEXT     NOT NULL,&quot;</span>
+               <span class="s">&quot;CITY           TEXT    NOT NULL,&quot;</span>
+               <span class="s">&quot;POSTALCODE     TEXT    NOT NULL,&quot;</span>
+               <span class="s">&quot;EMAIL         TEXT);&quot;</span><span class="p">)</span>
+
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dariusz Luczynski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

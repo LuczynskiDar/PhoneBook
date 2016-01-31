@@ -1,0 +1,78 @@
+ksiazka_telefoniczna package
+============================
+
+Submodules
+----------
+
+ksiazka_telefoniczna.Console module
+-----------------------------------
+
+.. automodule:: ksiazka_telefoniczna.Console
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+ksiazka_telefoniczna.GetData module
+-----------------------------------
+
+.. automodule:: ksiazka_telefoniczna.GetData
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+ksiazka_telefoniczna.OpenFromFile module
+----------------------------------------
+
+.. automodule:: ksiazka_telefoniczna.OpenFromFile
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+ksiazka_telefoniczna.OpenFromSQLite module
+------------------------------------------
+
+.. automodule:: ksiazka_telefoniczna.OpenFromSQLite
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+ksiazka_telefoniczna.Person module
+----------------------------------
+
+.. automodule:: ksiazka_telefoniczna.Person
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+ksiazka_telefoniczna.Processing module
+--------------------------------------
+
+.. automodule:: ksiazka_telefoniczna.Processing
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+ksiazka_telefoniczna.TelephoneBook module
+-----------------------------------------
+
+.. automodule:: ksiazka_telefoniczna.TelephoneBook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+ksiazka_telefoniczna.skeleton module
+------------------------------------
+
+.. automodule:: ksiazka_telefoniczna.skeleton
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: ksiazka_telefoniczna
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ksiazka_telefoniczna.Console &mdash; ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.post0.dev1+25d096d',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ksiazka_telefoniczna.Console</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">ksiazka_telefoniczna.Processing</span> <span class="kn">import</span> <span class="n">Processing</span>
+
+<div class="viewcode-block" id="Console"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console">[docs]</a><span class="k">class</span> <span class="nc">Console</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class controls view, of the Telephone Boook</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c"># Message to be set in the message box</span>
+    <span class="n">message</span><span class="o">=</span><span class="s">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c"># initiate controller</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">=</span><span class="n">Processing</span><span class="p">()</span>
+
+        <span class="c">#starting console menu</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">menu_root</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Console.set_message"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.set_message">[docs]</a>    <span class="k">def</span> <span class="nf">set_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param message: A message to be placed in the message box.</span>
+<span class="sd">        :type message: str</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="o">=</span><span class="n">message</span></div>
+
+<div class="viewcode-block" id="Console.getMessage"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.getMessage">[docs]</a>    <span class="k">def</span> <span class="nf">getMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :return: message</span>
+<span class="sd">        Function returns a message, a class attribute.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span></div>
+
+<div class="viewcode-block" id="Console.message_box"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.message_box">[docs]</a>    <span class="k">def</span> <span class="nf">message_box</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Function prints a message box in the console window.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c">#Program and author</span>
+        <span class="k">def</span> <span class="nf">top_headder</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">&#39;#&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)])</span> <span class="o">+</span> <span class="s">&#39; Dariusz Łuczyński &#39;</span> <span class="o">+</span> <span class="s">&quot;#&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">&#39;#&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span> \
+                  <span class="o">+</span> <span class="s">&#39; Kiążka Telefoniczna &#39;</span> <span class="o">+</span> <span class="s">&quot;#&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">&#39;#&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)])</span> <span class="o">+</span> <span class="s">&#39; AGH 2016&#39;</span> <span class="o">+</span> <span class="s">&quot;#&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">&#39;#&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">)]))</span>
+
+        <span class="c"># Full hash line</span>
+        <span class="k">def</span> <span class="nf">line_hash</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">&quot;#&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">40</span><span class="p">)]))</span>
+
+        <span class="k">def</span> <span class="nf">line_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+            <span class="n">patch</span> <span class="o">=</span> <span class="s">&quot;#&quot;</span> <span class="o">+</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">&quot; &quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span> <span class="o">+</span> <span class="n">message</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">80</span><span class="p">):</span>
+                <span class="n">patch</span><span class="o">=</span><span class="n">patch</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span> <span class="o">==</span> <span class="mi">76</span><span class="p">:</span>
+                    <span class="n">patch</span> <span class="o">=</span> <span class="n">patch</span> <span class="o">+</span> <span class="s">&quot;#&quot;</span>
+                    <span class="k">break</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+
+        <span class="c">#messenger body</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="n">top_headder</span><span class="p">();</span> <span class="n">line_hash</span><span class="p">()</span>
+        <span class="n">line_message</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+        <span class="c">#line_message(&quot;&quot;)</span>
+        <span class="n">line_hash</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Console.to_confirm"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.to_confirm">[docs]</a>    <span class="k">def</span> <span class="nf">to_confirm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param message: Message with request of confirmation.</span>
+<span class="sd">        :type message: str</span>
+<span class="sd">        :return: True or False</span>
+<span class="sd">        Function asks to confirm an action.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">confirmation</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">message</span> <span class="o">+</span> <span class="s">&quot; Naciśnij T/N:&quot;</span><span class="p">)</span>
+
+        <span class="c"># To execute the selected option</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">parameter</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">confirmation</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">parameter</span> <span class="o">==</span> <span class="s">&quot;t&quot;</span> <span class="ow">or</span> <span class="n">parameter</span> <span class="o">==</span> <span class="s">&quot;T&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="s">&quot;n&quot;</span> <span class="ow">or</span> <span class="n">parameter</span> <span class="o">==</span> <span class="s">&quot;N&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak! Wybierz T lub N.&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">to_confirm</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak! Wybierz T lub N&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">to_confirm</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Console.to_print_dictionary"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.to_print_dictionary">[docs]</a>    <span class="k">def</span> <span class="nf">to_print_dictionary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">print_dictionary</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param print_dictionary: A dictionary to be printed.</span>
+<span class="sd">        :type print_dictionary: dict</span>
+<span class="sd">        Prints a dictionary.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">print_dictionary</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Console.menu_root"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.menu_root">[docs]</a>    <span class="k">def</span> <span class="nf">menu_root</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Prints a root menu.</span>
+
+<span class="sd">                1. Dodaj nowy kontakt</span>
+<span class="sd">                2. Zarządzaj bazą danych</span>
+<span class="sd">                3. Zapisz lub pobierz książkę telefoniczną z pliku</span>
+<span class="sd">                4. Znajdź kontakt</span>
+<span class="sd">                0. Wyjdź z programu</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;1. Dodaj nowy kontakt&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;2. Zarządzaj bazą danych&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;3. Zapisz lub pobierz książkę telefoniczną z pliku&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;4. Znajdź kontakt&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;0. Wyjdź z programu&quot;</span><span class="p">)</span>
+        <span class="n">inputParam</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Wybierz opcję: &quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+        <span class="c"># To execute the selected option</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">parameter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">inputParam</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">parameter</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">parameter</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_new</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_sql_db</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_csv_file</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_find</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_quit</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy numer! Wybierz wartość 1-4.&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">menu_root</span><span class="p">()</span>
+            <span class="c">#end if</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak! Wybierz wartość 1-4.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">menu_root</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Console.menu_new"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.menu_new">[docs]</a>    <span class="k">def</span> <span class="nf">menu_new</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Sets a new contact to the telephone book.</span>
+
+<span class="sd">            1. Podaj imię:</span>
+<span class="sd">            2. Podaj nazwisko:</span>
+<span class="sd">            3. Podaj numer telefonu:</span>
+<span class="sd">            4. Podaj ulicę:</span>
+<span class="sd">            5. Podaj numer domu i mieszkania:</span>
+<span class="sd">            6. Podaj kod pocztowy:</span>
+<span class="sd">            7. Podaj miasto:</span>
+<span class="sd">            8. Podaj email:</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">repeat_new_menu</span><span class="p">(</span><span class="n">name_user</span><span class="p">,</span> <span class="n">surname_user</span><span class="p">,</span> <span class="n">phone_user</span><span class="p">):</span>
+            <span class="n">phone_user</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">phone_user</span><span class="p">)</span>
+            <span class="n">street_user</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;4. Podaj ulicę: &quot;</span><span class="p">)</span>
+            <span class="n">number_user</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;5. Podaj numer domu i mieszkania: &quot;</span><span class="p">)</span>
+            <span class="n">postalcode_user</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;6. Podaj kod pocztowy: &quot;</span><span class="p">)</span>
+            <span class="n">city_user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">to_upper_first_character</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;7. Podaj miasto: &quot;</span><span class="p">))</span>
+            <span class="n">email_user</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;8. Podaj email: &quot;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">name_user</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">surname_user</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">phone_user</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">street_user</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">number_user</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                  <span class="n">postalcode_user</span> <span class="o">+</span><span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">city_user</span> <span class="o">+</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">email_user</span><span class="p">)</span>
+            <span class="n">confirmation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_confirm</span><span class="p">(</span><span class="s">&quot;Czy dane wprowadzono poprawnie?&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">confirmation</span><span class="p">:</span>
+                <span class="n">do_not_repeats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">new_contacts</span><span class="p">([</span><span class="n">name_user</span><span class="p">,</span> <span class="n">surname_user</span><span class="p">,</span> <span class="n">phone_user</span><span class="p">,</span> <span class="n">street_user</span><span class="p">,</span> <span class="n">number_user</span><span class="p">,</span> \
+                                                        <span class="n">city_user</span><span class="p">,</span> <span class="n">postalcode_user</span><span class="p">,</span> <span class="n">email_user</span><span class="p">])</span>
+                <span class="c">#self.process.new_contacts</span>
+                <span class="k">if</span> <span class="n">do_not_repeats</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Nowy kontakt został dodany do książki telefonicznej.&quot;</span><span class="p">)</span>
+                    <span class="c">#self.message_box()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_root</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Kontakt znajduje się już w książce telefonicznej!&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_root</span><span class="p">()</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">confirm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_confirm</span><span class="p">(</span><span class="s">&quot;Czy wprowadzić nowy kontakt?&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">confirm</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_new</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_root</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">new_user_proceed</span><span class="p">(</span><span class="n">name_user</span><span class="p">,</span> <span class="n">surname_user</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">phone_user</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;3. Podaj numer telefonu: &quot;</span><span class="p">))</span>
+                <span class="n">repeat_new_menu</span><span class="p">(</span><span class="n">name_user</span><span class="p">,</span> <span class="n">surname_user</span><span class="p">,</span> <span class="n">phone_user</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak!&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                <span class="n">new_user_proceed</span><span class="p">(</span><span class="n">name_user</span><span class="p">,</span> <span class="n">surname_user</span><span class="p">)</span>
+
+        <span class="n">name_user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">to_upper_first_character</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;1. Podaj imię: &quot;</span><span class="p">))</span><span class="c">#to sort the right way</span>
+        <span class="n">surname_user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">to_upper_first_character</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;2. Podaj nazwisko: &quot;</span><span class="p">))</span>
+        <span class="n">new_user_proceed</span><span class="p">(</span><span class="n">name_user</span><span class="p">,</span><span class="n">surname_user</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Console.menu_file_list"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.menu_file_list">[docs]</a>    <span class="k">def</span> <span class="nf">menu_file_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_type</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param file_type: Type of the file to be found in a directory.</span>
+<span class="sd">        :type fileType: str</span>
+<span class="sd">        :param start_point: Points on the beggining of the list.</span>
+<span class="sd">        :type start_point: int</span>
+<span class="sd">        Searches to choose a file from a directory.</span>
+
+<span class="sd">            Wartość 3-9, reprezentuje pliki znajdujące się w katalogu domyślnym.</span>
+<span class="sd">            1. Poprzedni ekran   2. Następny ekran   0. Wyjście do porzedniego menu</span>
+<span class="sd">            Wybierz plik lub opcję 0-2:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="k">def</span> <span class="nf">do_vector</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span> <span class="n">file_list</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">int</span><span class="p">((</span><span class="n">pointer</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">def</span> <span class="nf">to_print_file_list</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span> <span class="n">file_list</span><span class="p">,</span> <span class="n">display_vector</span><span class="p">):</span>
+             <span class="k">print</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;. &quot;</span> <span class="o">+</span> <span class="n">file_list</span><span class="p">[</span><span class="n">pointer</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;   &quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">display_vector</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">display_vector</span><span class="p">[</span><span class="mi">1</span><span class="p">])]))</span>
+
+        <span class="n">pointer</span> <span class="o">=</span> <span class="n">start_point</span>
+        <span class="n">file_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">from_directory_file_list</span><span class="p">(</span><span class="n">file_type</span><span class="p">)</span>
+        <span class="n">display_vector</span> <span class="o">=</span> <span class="n">do_vector</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">file_list</span><span class="p">)</span>
+        <span class="n">to_print_file_list</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">file_list</span><span class="p">,</span><span class="n">display_vector</span><span class="p">)</span>
+
+        <span class="c"># To execute the selected option</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Wartość 3-9, reprezentuje pliki znajdujące się w katalogu domyślnym.&quot;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;1. Poprzedni ekran   2. Następny ekran   0. Wyjście do porzedniego menu&quot;</span><span class="p">)</span>
+            <span class="n">parameter</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Wybierz plik lub opcję 0-2: &quot;</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">parameter</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">parameter</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">pointer</span> <span class="o">-</span> <span class="mi">7</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_file_list</span><span class="p">(</span><span class="n">file_type</span><span class="p">,</span> <span class="n">pointer</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_file_list</span><span class="p">(</span><span class="n">file_type</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span> <span class="o">%</span> <span class="mi">7</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">pointer</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_file_list</span><span class="p">(</span><span class="n">file_type</span><span class="p">,</span> <span class="n">pointer</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_file_list</span><span class="p">(</span><span class="n">file_type</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">file_type</span><span class="o">==</span> <span class="s">&quot;csv&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_csv_file</span><span class="p">()</span>
+                    <span class="k">elif</span> <span class="n">file_type</span><span class="o">==</span> <span class="s">&quot;db&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_sql_db</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s">&quot;csv&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">set_start_file</span><span class="p">(</span><span class="n">file_list</span><span class="p">[</span><span class="n">pointer</span><span class="o">+</span><span class="n">parameter</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Wybrano plik &quot;</span> <span class="o">+</span> <span class="n">file_list</span><span class="p">[</span><span class="n">pointer</span> <span class="o">+</span> <span class="n">parameter</span> <span class="o">-</span> <span class="mi">4</span><span class="p">])</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_csv_file</span><span class="p">()</span>
+                    <span class="k">elif</span> <span class="n">file_type</span><span class="o">==</span> <span class="s">&quot;db&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">set_start_db</span><span class="p">(</span><span class="n">file_list</span><span class="p">[</span><span class="n">pointer</span> <span class="o">+</span> <span class="n">parameter</span> <span class="o">-</span> <span class="mi">4</span><span class="p">])</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Wybrano bazę &quot;</span> <span class="o">+</span> <span class="n">file_list</span><span class="p">[</span><span class="n">pointer</span> <span class="o">+</span> <span class="n">parameter</span> <span class="o">-</span> <span class="mi">4</span><span class="p">])</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_sql_db</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy numer! Wybierz wartość 1-9.&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">menu_file_list</span><span class="p">(</span><span class="n">file_type</span><span class="p">)</span>
+            <span class="c">#end if</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak! Wybierz wartość 1-9.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">menu_file_list</span><span class="p">(</span><span class="n">file_type</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Console.menu_sql_db"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.menu_sql_db">[docs]</a>    <span class="k">def</span> <span class="nf">menu_sql_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Interface to the SQL _data base.</span>
+
+<span class="sd">            1. Zmień bazę danych</span>
+<span class="sd">            2. Wczytaj kontakty z bazy danych</span>
+<span class="sd">            3. Stwórz bazę danych</span>
+<span class="sd">            4. Usuń bazę danych</span>
+<span class="sd">            0. Wyjdź z programu</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s">&quot;db&quot;</span>
+
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;1. Zmień bazę danych&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;2. Wczytaj kontakty z bazy danych&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;3. Stwórz bazę danych&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;4. Usuń bazę danych&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;0. Wyjdź z programu&quot;</span><span class="p">)</span>
+        <span class="n">input_param</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Wybierz opcję: &quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+        <span class="c"># To execute the selected option</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">parameter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">input_param</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">parameter</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">parameter</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_file_list</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                    <span class="n">sql_dictionary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">get_sql_contacts</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">to_print_dictionary</span><span class="p">(</span><span class="n">sql_dictionary</span><span class="p">)</span>
+                    <span class="n">confirm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">to_confirm</span><span class="p">(</span><span class="s">&quot;Dodać dane?&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">confirm</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">edit_update</span><span class="p">(</span><span class="n">sql_dictionary</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_sql_db</span><span class="p">()</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_sql_db</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="n">file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Wprowadź nazwę dla pliku .db:&quot;</span><span class="p">)</span>
+                    <span class="c"># self.process.set_start_db=_fileName</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">create_sql_db</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Baza została stworzona&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_sql_db</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                    <span class="n">table_delete</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">delete_sql_table</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">table_delete</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Baza danych została usunięta.&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Brak bazy danych w liście.&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_file_list</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_root</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy numer! Wybierz wartość 1-4.&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">menu_sql_db</span><span class="p">()</span>
+            <span class="c">#end if</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak! Wybierz wartość 1-4.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">menu_sql_db</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Console.menu_csv_file"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.menu_csv_file">[docs]</a>    <span class="k">def</span> <span class="nf">menu_csv_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Import or export data to/from a CSV file.</span>
+<span class="sd">            1. Wybierz plik CSV</span>
+<span class="sd">            2. Wczytaj kontakty z pliku CSV</span>
+<span class="sd">            3. Zapisz dane do pliku CSV</span>
+<span class="sd">            0. Wyjdź z programu</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+
+        <span class="c">#print(self.message)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;1. Wybierz plik CSV&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;2. Wczytaj kontakty z pliku CSV&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;3. Zapisz dane do pliku CSV&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;0. Wyjdź z programu&quot;</span><span class="p">)</span>
+        <span class="n">input_param</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Wybierz opcję: &quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+        <span class="c"># To execute the selected option</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">parameter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">input_param</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">parameter</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">parameter</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                    <span class="nb">type</span> <span class="o">=</span> <span class="s">&quot;csv&quot;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_file_list</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                    <span class="n">csv_dictionary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">get_csv_contacts</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">to_print_dictionary</span><span class="p">(</span><span class="n">csv_dictionary</span><span class="p">)</span>
+                    <span class="n">confirm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_confirm</span><span class="p">(</span><span class="s">&quot;Dodać dane?&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">confirm</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">edit_update</span><span class="p">(</span><span class="n">csv_dictionary</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_csv_file</span><span class="p">()</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_csv_file</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">set_csv_contacts</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_root</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy numer! Wybierz wartość 1-4.&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">menu_csv_file</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak! Wybierz wartość 1-4.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">menu_csv_file</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Console.menu_find"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.menu_find">[docs]</a>    <span class="k">def</span> <span class="nf">menu_find</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Finds a contact in the database with requested string.</span>
+
+<span class="sd">            Po wyszukaniu jednego kontaktu możliwa jest jego edycja oraz jego usunięcie</span>
+<span class="sd">            1. Wyszukaj kontakt</span>
+<span class="sd">            0. Wróć do menu główneg</span>
+
+<span class="sd">            pisz tekst aby wyszukać kontakt:</span>
+
+<span class="sd">            Wybierz pole, które chcesz edytować:</span>
+<span class="sd">            1. Imię           2. Nazwisko                3. Numer telefonu</span>
+<span class="sd">            4. Ulica          5. Numer domu/mieszkania   6. Miasto</span>
+<span class="sd">            7. Kod pocztowy   8. Email                   0. Wyjście</span>
+
+<span class="sd">        If one contact is found the menu enables it to edit or delete.</span>
+
+<span class="sd">            1. Edytuj kontakt:</span>
+<span class="sd">            5. Usuń kontakt:</span>
+<span class="sd">            0. Wyjdź z menu:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="k">def</span> <span class="nf">int_check</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">my_string</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Podaj nową wartość: &quot;</span><span class="p">)</span>
+                <span class="nb">int</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span> <span class="c">#checks String</span>
+                <span class="k">return</span> <span class="n">my_string</span>
+
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak!&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                <span class="n">int_check</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">sub_menu_edit_contact</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Wybierz pole, które chcesz edytować: &quot;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;1. Imię           2. Nazwisko                3. Numer telefonu&quot;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;4. Ulica          5. Numer domu/mieszkania   6. Miasto&quot;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;7. Kod pocztowy   8. Email                   0. Wyjście&quot;</span><span class="p">)</span>
+            <span class="n">input_param</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Wybierz opcję: &quot;</span><span class="p">)</span>
+
+            <span class="c"># To execute the selected option</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">parameter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">input_param</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">parameter</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">parameter</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">confirm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_confirm</span><span class="p">(</span><span class="s">&quot;Zapisać zmiany? &quot;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">confirm</span><span class="p">:</span>
+                            <span class="n">update</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">edit_update</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">update</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Zmiany zapisano&quot;</span><span class="p">)</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">menu_find</span><span class="p">()</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Kontakt już znajduje się w książce telefonicznej&quot;</span><span class="p">)</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                                <span class="n">sub_menu_edit_contact</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+
+                    <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                        <span class="n">my_string</span> <span class="o">=</span> <span class="n">int_check</span><span class="p">()</span>
+                        <span class="n">new_dictionary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">edit_contact</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">,</span> <span class="n">parameter</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">my_string</span><span class="p">)</span>
+                        <span class="n">sub_menu_edit_contact</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                        <span class="n">my_string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Podaj nową wartość: &quot;</span><span class="p">)</span>
+                        <span class="n">new_dictionary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">edit_contact</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">,</span> <span class="n">parameter</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">my_string</span><span class="p">)</span>
+                        <span class="n">sub_menu_edit_contact</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy numer! Wybierz wartość 1,5 lub 0.&quot;</span><span class="p">)</span>
+                    <span class="n">sub_menu_find_edit</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak! Wybierz wartość 1,5 lub 0.&quot;</span><span class="p">)</span>
+                <span class="n">sub_menu_find_edit</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">sub_menu_find_edit</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;1. Edytuj kontakt: &quot;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;5. Usuń kontakt: &quot;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;0. Wyjdź z menu: &quot;</span><span class="p">)</span>
+
+            <span class="n">input_param</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Wybierz opcję: &quot;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+            <span class="c"># To execute the selected option</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">parameter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">input_param</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                        <span class="n">sub_menu_edit_contact</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+
+                    <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+                        <span class="n">confirm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_confirm</span><span class="p">(</span><span class="s">&quot;Kontakt zostanie usunięty. &quot;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">confirm</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">delete_contact</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Kontakt został usunięty&quot;</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">menu_find</span><span class="p">()</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                            <span class="n">sub_menu_find_edit</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">parameter</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">menu_find</span><span class="p">()</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy numer! Wybierz wartość 1,5 lub 0.&quot;</span><span class="p">)</span>
+                    <span class="n">sub_menu_find_edit</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak! Wybierz wartość 1,5 lub 0.&quot;</span><span class="p">)</span>
+                <span class="n">sub_menu_find_edit</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">sub_menu_find</span><span class="p">():</span>
+
+            <span class="n">find_string</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Wpisz tekst aby wyszukać kontakt: &quot;</span><span class="p">)</span>
+            <span class="n">new_dictionary</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">find_contact_sting</span><span class="p">(</span><span class="n">find_string</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Brak kontaktów.&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">menu_find</span><span class="p">()</span>
+
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">to_print_dictionary</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+                <span class="n">sub_menu_find_edit</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">to_print_dictionary</span><span class="p">(</span><span class="n">new_dictionary</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">menu_find</span><span class="p">()</span>
+
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Po wyszukaniu jednego kontaktu możliwa jest jego edycja oraz jego usunięcie&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;1. Wyszukaj kontakt&quot;</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;0. Wróć do menu głównego&quot;</span><span class="p">)</span>
+
+        <span class="n">input_param</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Wybierz opcję: &quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+        <span class="c"># To execute the selected option</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">parameter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">input_param</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">parameter</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">parameter</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                    <span class="n">sub_menu_find</span><span class="p">()</span>
+
+                <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">message_box</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">menu_root</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy numer! Wybierz wartość 0-1.&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">menu_find</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_message</span><span class="p">(</span><span class="s">&quot;Niewłaściwy znak! Wybierz wartość 0-1.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">menu_find</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Console.menu_quit"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Console.Console.menu_quit">[docs]</a>    <span class="k">def</span> <span class="nf">menu_quit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Saves configuration and quits console menu.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">save_configuration</span><span class="p">()</span></div></div>
+
+
+
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dariusz Luczynski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

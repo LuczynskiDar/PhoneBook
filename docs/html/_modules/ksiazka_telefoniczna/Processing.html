@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ksiazka_telefoniczna.Processing &mdash; ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.post0.dev1+25d096d',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ksiazka_telefoniczna.Processing</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">ksiazka_telefoniczna.GetData</span> <span class="kn">import</span> <span class="n">GetData</span>
+<span class="kn">from</span> <span class="nn">ksiazka_telefoniczna.TelephoneBook</span> <span class="kn">import</span> <span class="n">TelephoneBook</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">sys</span><span class="o">,</span><span class="nn">pkgutil</span><span class="o">,</span><span class="nn">pkg_resources</span>
+
+<div class="viewcode-block" id="Processing"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Processing.Processing">[docs]</a><span class="k">class</span> <span class="nc">Processing</span><span class="p">:</span></div>
+
+    <span class="c">#Applying paths to the _data</span>
+    <span class="n">_KT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+    <span class="n">_CFG_PATH</span> <span class="o">=</span> <span class="n">_KT_PATH</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s">&#39;cfg&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span>
+    <span class="n">_DB_PATH</span> <span class="o">=</span> <span class="n">_KT_PATH</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s">&#39;db&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span>
+    <span class="n">_CSV_PATH</span> <span class="o">=</span> <span class="n">_KT_PATH</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s">&#39;csv&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span>
+
+    <span class="c">#Appends the paths</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_KT_PATH</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_CFG_PATH</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_DB_PATH</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_CSV_PATH</span><span class="p">)</span>
+
+    <span class="c">#Making new objects</span>
+    <span class="n">_telephone_book</span> <span class="o">=</span> <span class="n">TelephoneBook</span><span class="p">()</span>
+    <span class="n">_get_data</span> <span class="o">=</span> <span class="n">GetData</span><span class="p">()</span>
+
+    <span class="c">#Reads the _data from the config</span>
+    <span class="n">_config_file</span> <span class="o">=</span> <span class="s">&#39;config.json&#39;</span>
+    <span class="c"># human readable</span>
+    <span class="c"># print(os.listdir(_CFG_PATH))</span>
+    <span class="n">_data</span> <span class="o">=</span> <span class="n">_get_data</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="n">path</span> <span class="o">=</span> <span class="n">_CFG_PATH</span> <span class="o">+</span> <span class="n">_config_file</span><span class="p">)</span>
+    <span class="c"># _data = _get_data.get_config({&#39;path&#39;:_CFG_PATH + &#39;config.json&#39;})</span>
+    <span class="c"># print(_data)</span>
+
+    <span class="c">#Setting the parameters</span>
+    <span class="n">_START_FILE</span> <span class="o">=</span> <span class="n">_data</span><span class="p">[</span><span class="s">&#39;START_FILE&#39;</span><span class="p">]</span>
+    <span class="n">_START_DB</span> <span class="o">=</span> <span class="n">_data</span><span class="p">[</span><span class="s">&#39;START_DB&#39;</span><span class="p">]</span>
+    <span class="n">_TABLE_NAME</span> <span class="o">=</span> <span class="n">_data</span><span class="p">[</span><span class="s">&#39;TABLE_NAME&#39;</span><span class="p">]</span>
+    <span class="n">_TABLE</span> <span class="o">=</span> <span class="n">_data</span><span class="p">[</span><span class="s">&#39;TABLE&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fileName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_CSV_PATH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_START_FILE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_DB_PATH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_START_DB</span>
+
+        <span class="c"># Reads the _data from SQL lite database and sets it into telephone_book attribute</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_telephone_book</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sql_contacts</span><span class="p">())</span>
+
+
+    <span class="k">def</span> <span class="nf">set_telephone_book</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telephone_book</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :type TelephoneBook</span>
+<span class="sd">        :return: telephone_book: Returns an object of class TelephoneBook</span>
+
+<span class="sd">        Function is a setter of a class attribute telephone_book.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span><span class="o">=</span><span class="n">telephone_book</span>
+
+    <span class="k">def</span> <span class="nf">get_telephone_book</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :return: TelephneBook</span>
+
+<span class="sd">        Funtion is a getter, which gets the object of class TelephoneBook from</span>
+<span class="sd">        from object of class Processing.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span>
+
+    <span class="k">def</span> <span class="nf">set_start_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param file_name: The name of CSV file.</span>
+<span class="sd">        :type file_name: str</span>
+<span class="sd">        Function is a setter of a class attribute _START_FILE.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_START_FILE</span> <span class="o">=</span> <span class="n">file_name</span>
+
+    <span class="k">def</span> <span class="nf">set_start_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param db_name: Name of _data base which contains SQL _data</span>
+<span class="sd">        :type db_name: str</span>
+<span class="sd">        Function is a setter of a class attribute _START_DB.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_START_DB</span> <span class="o">=</span> <span class="n">db_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_DB_PATH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_START_DB</span>
+
+    <span class="k">def</span> <span class="nf">to_upper_first_character</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contacts_string</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param contacts_string: Name, Surname, etc.</span>
+<span class="sd">        :type contacts_string: str</span>
+<span class="sd">        :returns: str or empty str</span>
+
+<span class="sd">         Function brings the first character of the string to capital.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">upper_contacts_string</span><span class="o">=</span><span class="s">&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">contacts_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="n">upper_contacts_string</span> <span class="o">=</span> <span class="n">contacts_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">contacts_string</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="k">return</span> <span class="n">upper_contacts_string</span>
+
+    <span class="k">def</span> <span class="nf">from_directory_file_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_type</span><span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param file_type: Could be &#39;db&#39;, &#39;csv&#39;, &#39;json&#39;</span>
+<span class="sd">        :type file_type: str</span>
+<span class="sd">        :returns: list of strings</span>
+<span class="sd">        Function from_directory_file_list reads files wiht the type file_type:</span>
+<span class="sd">        &#39;db&#39;, &#39;csv&#39;, &#39;json&#39; from a directory.</span>
+<span class="sd">.        &#39;&#39;&#39;</span>
+
+        <span class="n">file_type_list</span><span class="o">=</span><span class="p">[]</span>
+
+        <span class="c">#filetype entry is .db, .csv</span>
+        <span class="k">if</span> <span class="n">file_type</span><span class="o">.</span><span class="n">__contains__</span><span class="p">(</span><span class="s">&#39;db&#39;</span><span class="p">):</span> <span class="n">file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_DB_PATH</span>
+        <span class="k">elif</span> <span class="n">file_type</span><span class="o">.</span><span class="n">__contains__</span><span class="p">(</span><span class="s">&#39;csv&#39;</span><span class="p">):</span>  <span class="n">file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_CSV_PATH</span>
+        <span class="k">elif</span> <span class="n">file_type</span><span class="o">.</span><span class="n">__contains__</span><span class="p">(</span><span class="s">&#39;json&#39;</span><span class="p">):</span> <span class="n">file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_CFG_PATH</span>
+
+        <span class="c"># print(file_path)</span>
+
+        <span class="n">file_list</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+        <span class="c"># file_list=os.listdir(os.getcwd())</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">__contains__</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="o">+</span><span class="n">file_type</span><span class="p">):</span>
+                <span class="n">file_type_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="c"># file_type_list.append(f[:-len(file_type)])</span>
+                <span class="c"># file_type_list.append(f[:-len(file_type) - 1])</span>
+        <span class="k">return</span> <span class="n">file_type_list</span>
+
+    <span class="k">def</span> <span class="nf">temporary_telephone_book</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp_list</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param temp_list: List of parameters for a new contact.</span>
+<span class="sd">        :type list</span>
+<span class="sd">        :return: TelephoneBook</span>
+<span class="sd">        Function temporary_telephone_book makes a temporary object of class TelephoneBook.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">TelephoneBook</span><span class="p">()</span>
+        <span class="n">temp</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="s">&quot;temp&quot;</span><span class="p">,</span> <span class="n">temp_list</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">temp</span>
+
+    <span class="k">def</span> <span class="nf">merge_telephone_book</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telephone_book</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param telephone_book: An object of class TelephoneBook</span>
+<span class="sd">        :type telephone_book: TelephoneBook</span>
+<span class="sd">        :returns  TelephoneBook</span>
+<span class="sd">        Function merges two objects of class TelephoneBook.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">telephone_book</span><span class="p">)</span><span class="c">#updates telephone book with new items</span>
+
+    <span class="k">def</span> <span class="nf">sort_telephone_book</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :returns: TelephoneBook</span>
+<span class="sd">        Function sorts the object&#39;s Procosseng class attribute: telephone_book.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">new_telephone_book</span><span class="o">=</span><span class="n">TelephoneBook</span><span class="p">()</span> <span class="c">#Makes a new _telephone_book</span>
+        <span class="n">sorted_list_of_contacts</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="c">#sorts a items in the book and returns a list</span>
+        <span class="n">iterattion</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">sorted_list_of_contacts</span><span class="p">:</span>
+            <span class="n">new_telephone_book</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">iterattion</span><span class="p">,</span><span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="c">#writes to the new book items from the sorted list</span>
+            <span class="n">iterattion</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_telephone_book</span><span class="p">(</span><span class="n">new_telephone_book</span><span class="p">)</span><span class="c">#sets new book as a telephone book</span>
+        <span class="k">return</span> <span class="n">new_telephone_book</span>
+
+    <span class="k">def</span> <span class="nf">find_contact_sting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">my_sring</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param my_sring: String to be found</span>
+<span class="sd">        :type my_sring: str</span>
+<span class="sd">        :returns: TelephoneBook</span>
+<span class="sd">        Returns a TelephoneBook object with all the data that contains desired string.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">my_list</span><span class="o">=</span><span class="n">my_sring</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">new_dictionary</span><span class="o">=</span><span class="n">TelephoneBook</span><span class="p">()</span>
+        <span class="n">key_list</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">__contains__</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+                        <span class="n">key_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="k">break</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">key_list</span><span class="p">:</span> <span class="n">new_dictionary</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">new_dictionary</span>
+
+    <span class="k">def</span> <span class="nf">compare_contact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telephone_book</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param telephone_book: A TelephoneBook object to compare with telephone_book class Processing&#39;s attribute.</span>
+<span class="sd">        :type telephone_book: TelephoneBook</span>
+<span class="sd">        :returns: list of the keys of data whicha are the same</span>
+<span class="sd">        Function compares values of two objects of class TelephoneBook.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">p</span><span class="o">=</span><span class="n">telephone_book</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="n">key_list</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">==</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">key_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">key_list</span>
+
+    <span class="k">def</span> <span class="nf">edit_contact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telephone_book</span><span class="p">,</span> <span class="n">pointer</span><span class="p">,</span> <span class="n">my_string</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">        :param telephone_book: TelephoneBook object to be edited</span>
+<span class="sd">        :type telephone_book: TelephoneBook</span>
+<span class="sd">        :param pointer: Points on an item from a table in object Person.</span>
+<span class="sd">        :type pointer: int</span>
+<span class="sd">        :param my_string: Desired string to be changed.</span>
+<span class="sd">        :type my_string: str</span>
+<span class="sd">        :returns: TelephoneBook</span>
+
+<span class="sd">        Function which edits contats in Peocessing class attribute telephone_book.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">my_string</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">to_upper_first_character</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+        <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span> <span class="n">my_string</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">telephone_book</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">telephone_book</span><span class="o">.</span><span class="n">__setitem__</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">telephone_book</span>
+
+    <span class="k">def</span> <span class="nf">edit_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telephone_book</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param telephone_book: An object of class TelephoneBook, which contains contacts.</span>
+<span class="sd">        :type telephone_book: TelephoneBook</span>
+<span class="sd">        :returns: True or False</span>
+<span class="sd">        Function checks if there are the same contacts on the contact list, if they are different SQL</span>
+<span class="sd">        Lite database is being updated.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">key_list</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compare_contact</span><span class="p">(</span><span class="n">telephone_book</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_list</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">merge_telephone_book</span><span class="p">(</span><span class="n">telephone_book</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sort_telephone_book</span><span class="p">()</span>
+            <span class="c"># new=self.sort_telephone_book()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">insert_sql_contacts</span><span class="p">()</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_list</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_list</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">delete_contact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">telephone_book</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">        :param telephone_book: Object of class TelephoneBook, which contains one contact.</span>
+<span class="sd">        :type telephone_book: TelephoneBook</span>
+<span class="sd">        Function delete_contact removes one contact from telephone_book.</span>
+<span class="sd">         &#39;&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">telephone_book</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span><span class="n">key</span><span class="o">=</span><span class="n">k</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span><span class="o">.</span><span class="n">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort_telephone_book</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insert_sql_contacts</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">new_contacts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_of_new_user</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">        :param list_of_new_user: New contact data</span>
+<span class="sd">        :type list_of_new_user: list</span>
+<span class="sd">        :returns: True or False</span>
+<span class="sd">        Function new_contacts makes a new contact from the list of strings.</span>
+<span class="sd">        Comopare if the contact exists, then inserts into the database.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">temp_telephone_book</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">temporary_telephone_book</span><span class="p">(</span><span class="n">list_of_new_user</span><span class="p">)</span>
+        <span class="n">key_list</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compare_contact</span><span class="p">(</span><span class="n">temp_telephone_book</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_list</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">merge_telephone_book</span><span class="p">(</span><span class="n">temp_telephone_book</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sort_telephone_book</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">insert_sql_contacts</span><span class="p">()</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_list</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_list</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">get_sql_contacts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Function get_sql_contacts downloads data from the SQL database.</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">insert_sql_contacts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Function insert_sql_contacts inserts data into SQL database.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="o">.</span><span class="n">insert_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">create_sql_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_name</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">        :param db_name: Name of new database file.</span>
+<span class="sd">        :type db_name: str</span>
+<span class="sd">        Makes new sql database.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c"># self.set_start_db(db_name)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_DB_PATH</span> <span class="o">+</span> <span class="n">db_name</span> <span class="o">+</span> <span class="s">&#39;.db&#39;</span><span class="p">)</span>
+        <span class="c"># self._get_data.create_table(self._db_name + &quot;.db&quot;)</span>
+
+    <span class="k">def</span> <span class="nf">delete_sql_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :returns: True or False</span>
+<span class="sd">        Removes SQL lite &#39;db&#39; file from the &#39;db&#39; directory. File name is set by variable db_name.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="n">flist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_directory_file_list</span><span class="p">(</span><span class="s">&quot;db&quot;</span><span class="p">)</span>
+        <span class="n">container</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="c"># print(sys.path)</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">flist</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_START_DB</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span><span class="p">)</span>
+                <span class="n">container</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">container</span>
+
+    <span class="k">def</span> <span class="nf">get_csv_contacts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :returns: TelephoneBook</span>
+<span class="sd">        Fuction get_csv_contacts picks contacts from CSV file.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">csv_telephone_book</span><span class="o">=</span><span class="n">TelephoneBook</span><span class="p">()</span>
+        <span class="k">return</span>  <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="o">.</span><span class="n">get_csv_data</span><span class="p">(</span><span class="n">csv_telephone_book</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fileName</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_csv_contacts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Function set_csv_contacts exports TelephoneBook into CSV file.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="o">.</span><span class="n">insert_csv_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_telephone_book</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fileName</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">save_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Function save_configuration saves final configuration of the START_FILE, START_DB,</span>
+<span class="sd">        TABLE_NAME and TABLE to the JSON configuration file.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="o">.</span><span class="n">insert_config</span><span class="p">(</span><span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_CFG_PATH</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_file</span> <span class="p">,</span> <span class="n">START_FILE</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_START_FILE</span><span class="p">,</span> \
+                                     <span class="n">START_DB</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_START_DB</span><span class="p">,</span> <span class="n">TABLE_NAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TABLE_NAME</span><span class="p">,</span> <span class="n">TABLE</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TABLE</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dariusz Luczynski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

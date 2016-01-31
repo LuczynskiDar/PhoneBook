@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ksiazka_telefoniczna.Person &mdash; ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.post0.dev1+25d096d',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ksiazka_telefoniczna.Person</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<div class="viewcode-block" id="Person"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Person.Person">[docs]</a><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Definition of Class Person, which is a container for:</span>
+<span class="sd">        first name, surname, telephone number, street, house and flat number,</span>
+<span class="sd">        city, postal code and email.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c"># __TABLE = [&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;]</span>
+    <span class="n">__TABLE</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Imię&quot;</span><span class="p">,</span><span class="s">&quot;Nazwisko&quot;</span><span class="p">,</span><span class="s">&quot;Telefon&quot;</span><span class="p">,</span><span class="s">&quot;Ulica&quot;</span><span class="p">,</span><span class="s">&quot;Numer&quot;</span><span class="p">,</span><span class="s">&quot;Miasto &quot;</span><span class="p">,</span><span class="s">&quot;Kod pocztowy&quot;</span><span class="p">,</span><span class="s">&quot;Email&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_of_data</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param list_of_data:</span>
+<span class="sd">        :type list</span>
+
+<span class="sd">        Function initiates and object of a class Person with a list of parameters.</span>
+<span class="sd">        Parameters are type string. However, the third parameter, telephone, might be a type of</span>
+<span class="sd">        integer. Then it&#39;s being casted to string.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span> <span class="o">=</span> <span class="n">list_of_data</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="c">#end def</span>
+
+<div class="viewcode-block" id="Person.set_table"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Person.Person.set_table">[docs]</a>    <span class="k">def</span> <span class="nf">set_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param args: List of parameters of the contact.</span>
+<span class="sd">        :type args: list</span>
+
+<span class="sd">        Function sets a list of parameters to tje class attribute Table.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__TABLE</span> <span class="o">=</span> <span class="n">args</span></div>
+
+<div class="viewcode-block" id="Person.__setitem__"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Person.Person.__setitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pointer</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param pointer: from 0 to 7</span>
+<span class="sd">        :type pointer: int</span>
+<span class="sd">        :parameter value: as describedin diekinition of class Person</span>
+<span class="sd">        :type value: str</span>
+
+<span class="sd">        Built in fuction, which sets in an value into list_of_data,</span>
+<span class="sd">        poited out by the pointer.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">[</span><span class="n">pointer</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="Person.__getitem__"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Person.Person.__getitem__">[docs]</a>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param item: points on an item or on a whole list</span>
+<span class="sd">        :type item: list</span>
+<span class="sd">        :return: list_of_data</span>
+<span class="sd">        :type item: int</span>
+<span class="sd">        :returns: list_of_data[item]</span>
+
+<span class="sd">        The function is a getter. Gets a value from an object of class Person.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">[</span><span class="n">item</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Person.__eq__"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Person.Person.__eq__">[docs]</a>    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :param other: Another object of the class Person</span>
+<span class="sd">        :type other: Person</span>
+<span class="sd">        :returns: True or False</span>
+
+<span class="sd">        Compares two objects of class Person.</span>
+<span class="sd">        This builtin function, which overloads the parameter &quot;=&quot;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span> <span class="o">==</span> <span class="n">other</span></div>
+
+<div class="viewcode-block" id="Person.__iter__"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Person.Person.__iter__">[docs]</a>    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :returns: self</span>
+
+<span class="sd">        Definition of an iterator, which iterates through items of the list</span>
+<span class="sd">        starting from first item in the list, thus handle value is 0.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle</span> <span class="o">=-</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Person.__next__"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Person.Person.__next__">[docs]</a>    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :returns: list_of_data[handle]</span>
+
+<span class="sd">        Definition of an iterator. Increase handle by 1 or raises an exception</span>
+<span class="sd">        of stopping an itreration.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handle</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">handle</span><span class="p">]</span></div>
+    <span class="c">#end def</span>
+
+
+<div class="viewcode-block" id="Person.__str__"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Person.Person.__str__">[docs]</a>    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :returns: All srings from list_of_data</span>
+
+<span class="sd">        Builtin function, overloads the object of class Person.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">__TABLE</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">))])</span></div>
+
+        <span class="c">#end def</span>
+
+<div class="viewcode-block" id="Person.to_table_values"><a class="viewcode-back" href="../../api/ksiazka_telefoniczna.html#ksiazka_telefoniczna.Person.Person.to_table_values">[docs]</a>    <span class="k">def</span> <span class="nf">to_table_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        :returns: SQL _TABLE&#39;s input string</span>
+
+<span class="sd">        Fuction returns _data from an object of class Person for rquirements inserting _data to a SQL _TABLE</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span> <span class="s">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">2</span> <span class="k">else</span>  <span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s">&quot;,&quot;</span> \
+                         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span><span class="o">+</span><span class="s">&quot;&#39;&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list_of_data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s">&quot;&#39;&quot;</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dariusz Luczynski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

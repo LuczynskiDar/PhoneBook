@@ -1,0 +1,1005 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ksiazka_telefoniczna package &mdash; ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.post0.dev1+25d096d',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="ksiazka_telefoniczna 0.0.post0.dev1+25d096d documentation" href="../index.html" />
+    <link rel="up" title="Modules" href="modules.html" />
+    <link rel="prev" title="Modules" href="modules.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ksiazka-telefoniczna-package">
+<h1>ksiazka_telefoniczna package<a class="headerlink" href="#ksiazka-telefoniczna-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ksiazka_telefoniczna.Console">
+<span id="ksiazka-telefoniczna-console-module"></span><h2>ksiazka_telefoniczna.Console module<a class="headerlink" href="#module-ksiazka_telefoniczna.Console" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ksiazka_telefoniczna.Console.Console">
+<em class="property">class </em><code class="descclassname">ksiazka_telefoniczna.Console.</code><code class="descname">Console</code><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Class controls view, of the Telephone Boook</p>
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.getMessage">
+<code class="descname">getMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.getMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.getMessage" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">message</td>
+</tr>
+</tbody>
+</table>
+<p>Function returns a message, a class attribute.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.menu_csv_file">
+<code class="descname">menu_csv_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.menu_csv_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.menu_csv_file" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Import or export data to/from a CSV file.</dt>
+<dd><ol class="first arabic simple">
+<li>Wybierz plik CSV</li>
+<li>Wczytaj kontakty z pliku CSV</li>
+</ol>
+<p class="last">3. Zapisz dane do pliku CSV
+0. Wyjdź z programu</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.menu_file_list">
+<code class="descname">menu_file_list</code><span class="sig-paren">(</span><em>file_type</em>, <em>start_point=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.menu_file_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.menu_file_list" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>file_type</strong> &#8211; Type of the file to be found in a directory.</li>
+<li><strong>start_point</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) &#8211; Points on the beggining of the list.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Searches to choose a file from a directory.</p>
+<blockquote>
+<div>Wartość 3-9, reprezentuje pliki znajdujące się w katalogu domyślnym.
+1. Poprzedni ekran   2. Następny ekran   0. Wyjście do porzedniego menu
+Wybierz plik lub opcję 0-2:</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.menu_find">
+<code class="descname">menu_find</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.menu_find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.menu_find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds a contact in the database with requested string.</p>
+<blockquote>
+<div><p>Po wyszukaniu jednego kontaktu możliwa jest jego edycja oraz jego usunięcie
+1. Wyszukaj kontakt
+0. Wróć do menu główneg</p>
+<p>pisz tekst aby wyszukać kontakt:</p>
+<p>Wybierz pole, które chcesz edytować:
+1. Imię           2. Nazwisko                3. Numer telefonu
+4. Ulica          5. Numer domu/mieszkania   6. Miasto
+7. Kod pocztowy   8. Email                   0. Wyjście</p>
+</div></blockquote>
+<p>If one contact is found the menu enables it to edit or delete.</p>
+<blockquote>
+<div>1. Edytuj kontakt:
+5. Usuń kontakt:
+0. Wyjdź z menu:</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.menu_new">
+<code class="descname">menu_new</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.menu_new"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.menu_new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a new contact to the telephone book.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Podaj imię:</li>
+<li>Podaj nazwisko:</li>
+<li>Podaj numer telefonu:</li>
+<li>Podaj ulicę:</li>
+<li>Podaj numer domu i mieszkania:</li>
+<li>Podaj kod pocztowy:</li>
+<li>Podaj miasto:</li>
+<li>Podaj email:</li>
+</ol>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.menu_quit">
+<code class="descname">menu_quit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.menu_quit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.menu_quit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves configuration and quits console menu.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.menu_root">
+<code class="descname">menu_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.menu_root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.menu_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a root menu.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Dodaj nowy kontakt</li>
+<li>Zarządzaj bazą danych</li>
+<li>Zapisz lub pobierz książkę telefoniczną z pliku</li>
+</ol>
+<p>4. Znajdź kontakt
+0. Wyjdź z programu</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.menu_sql_db">
+<code class="descname">menu_sql_db</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.menu_sql_db"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.menu_sql_db" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface to the SQL _data base.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Zmień bazę danych</li>
+<li>Wczytaj kontakty z bazy danych</li>
+<li>Stwórz bazę danych</li>
+</ol>
+<p>4. Usuń bazę danych
+0. Wyjdź z programu</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ksiazka_telefoniczna.Console.Console.message">
+<code class="descname">message</code><em class="property"> = ''</em><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.message_box">
+<code class="descname">message_box</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.message_box"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.message_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function prints a message box in the console window.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.set_message">
+<code class="descname">set_message</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.set_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.set_message" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; A message to be placed in the message box.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.to_confirm">
+<code class="descname">to_confirm</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.to_confirm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.to_confirm" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; Message with request of confirmation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False</td>
+</tr>
+</tbody>
+</table>
+<p>Function asks to confirm an action.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Console.Console.to_print_dictionary">
+<code class="descname">to_print_dictionary</code><span class="sig-paren">(</span><em>print_dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Console.html#Console.to_print_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Console.Console.to_print_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>print_dictionary</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><em>dict</em></a>) &#8211; A dictionary to be printed.</td>
+</tr>
+</tbody>
+</table>
+<p>Prints a dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ksiazka_telefoniczna.GetData">
+<span id="ksiazka-telefoniczna-getdata-module"></span><h2>ksiazka_telefoniczna.GetData module<a class="headerlink" href="#module-ksiazka_telefoniczna.GetData" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ksiazka_telefoniczna.GetData.GetData">
+<em class="property">class </em><code class="descclassname">ksiazka_telefoniczna.GetData.</code><code class="descname">GetData</code><a class="reference internal" href="../_modules/ksiazka_telefoniczna/GetData.html#GetData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.GetData.GetData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite" title="ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite"><code class="xref py py-class docutils literal"><span class="pre">ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite</span></code></a>, <a class="reference internal" href="#ksiazka_telefoniczna.OpenFromFile.OpenFromFile" title="ksiazka_telefoniczna.OpenFromFile.OpenFromFile"><code class="xref py py-class docutils literal"><span class="pre">ksiazka_telefoniczna.OpenFromFile.OpenFromFile</span></code></a>, <code class="xref py py-class docutils literal"><span class="pre">ksiazka_telefoniczna.OpenFromJSON.OpenFromJSON</span></code></p>
+<p>GetData is a virtual class, which inherits from OpenFromFile, OpenFromSQLite
+and OpenFromJSON. Purpose of the class is supply one interface for class Processing,
+to listed above classes.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ksiazka_telefoniczna.OpenFromFile">
+<span id="ksiazka-telefoniczna-openfromfile-module"></span><h2>ksiazka_telefoniczna.OpenFromFile module<a class="headerlink" href="#module-ksiazka_telefoniczna.OpenFromFile" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ksiazka_telefoniczna.OpenFromFile.OpenFromFile">
+<em class="property">class </em><code class="descclassname">ksiazka_telefoniczna.OpenFromFile.</code><code class="descname">OpenFromFile</code><a class="reference internal" href="../_modules/ksiazka_telefoniczna/OpenFromFile.html#OpenFromFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.OpenFromFile.OpenFromFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>:parameter _TABLE : Defines the columns in CSV file
+:type list</p>
+<p>Class opens and saves coma separated file: CSV. There
+is one class attribute, _TABLE. It is apploaded from the
+JSON file.</p>
+<dl class="method">
+<dt id="ksiazka_telefoniczna.OpenFromFile.OpenFromFile.get_csv_data">
+<code class="descname">get_csv_data</code><span class="sig-paren">(</span><em>telephone_book</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.OpenFromFile.OpenFromFile.get_csv_data" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>telephone_book</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="ksiazka_telefoniczna.TelephoneBook.TelephoneBook"><em>TelephoneBook</em></a>) &#8211; An oblect of the class TelephoneBook.</li>
+<li><strong>file_name</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; A path to a CSV file and filename.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">An object of class TelephoneBook.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Gets _data from the CSV file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.OpenFromFile.OpenFromFile.insert_csv_data">
+<code class="descname">insert_csv_data</code><span class="sig-paren">(</span><em>telephone_book</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.OpenFromFile.OpenFromFile.insert_csv_data" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>telephone_book</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="ksiazka_telefoniczna.TelephoneBook.TelephoneBook"><em>TelephoneBook</em></a>) &#8211; An object of the class TelephoneBook</li>
+<li><strong>file_name</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; A path to the CSV filename and filenam</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Inserts _data into CSV file with predefined quantity of columns.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.OpenFromFile.OpenFromFile.set_csv_table">
+<code class="descname">set_csv_table</code><span class="sig-paren">(</span><em>table</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.OpenFromFile.OpenFromFile.set_csv_table" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>table</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a>) &#8211; Columns of the CSV file.</td>
+</tr>
+</tbody>
+</table>
+<p>Setter of the OpenFromFile class attribute, _Table</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ksiazka_telefoniczna.OpenFromSQLite">
+<span id="ksiazka-telefoniczna-openfromsqlite-module"></span><h2>ksiazka_telefoniczna.OpenFromSQLite module<a class="headerlink" href="#module-ksiazka_telefoniczna.OpenFromSQLite" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite">
+<em class="property">class </em><code class="descclassname">ksiazka_telefoniczna.OpenFromSQLite.</code><code class="descname">OpenFromSQLite</code><a class="reference internal" href="../_modules/ksiazka_telefoniczna/OpenFromSQLite.html#OpenFromSQLite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>OpenFromSQLite class includes methods, which create, set and get _data
+from tne SQL lite _data base.</p>
+<dl class="method">
+<dt id="ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.create_table">
+<code class="descname">create_table</code><span class="sig-paren">(</span><em>db_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/OpenFromSQLite.html#OpenFromSQLite.create_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.create_table" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dbName</strong> &#8211; Name of a new database.</td>
+</tr>
+</tbody>
+</table>
+<p>Creates SQL database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.get_data">
+<code class="descname">get_data</code><span class="sig-paren">(</span><em>telephone_book</em>, <em>db_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/OpenFromSQLite.html#OpenFromSQLite.get_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.get_data" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>telephone_book</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="ksiazka_telefoniczna.TelephoneBook.TelephoneBook"><em>TelephoneBook</em></a>) &#8211; A empty collection to be reffiled with the data from SQL database.</li>
+<li><strong>db_name</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; Name of the db file.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">TelephoneBook</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Picks the data from SQL table.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.get_sql_table">
+<code class="descname">get_sql_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/OpenFromSQLite.html#OpenFromSQLite.get_sql_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.get_sql_table" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">TABLE</td>
+</tr>
+</tbody>
+</table>
+<p>Gets TABLE, a class attribute from OpenFromSQLite object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.insert_data">
+<code class="descname">insert_data</code><span class="sig-paren">(</span><em>telephone_book</em>, <em>db_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/OpenFromSQLite.html#OpenFromSQLite.insert_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.insert_data" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>telephone_book</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="ksiazka_telefoniczna.TelephoneBook.TelephoneBook"><em>TelephoneBook</em></a>) &#8211; Data to be inserted into SQL database.</li>
+<li><strong>db_name</strong> &#8211; Name of the database</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:type db_name:str
+:returns: TelephoneBook
+Function, wnich inserts data into a SQL database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.to_table_string">
+<code class="descname">to_table_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/OpenFromSQLite.html#OpenFromSQLite.to_table_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.OpenFromSQLite.OpenFromSQLite.to_table_string" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+<p>Prepares a string of columns to by placed in SQL table.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ksiazka_telefoniczna.Person">
+<span id="ksiazka-telefoniczna-person-module"></span><h2>ksiazka_telefoniczna.Person module<a class="headerlink" href="#module-ksiazka_telefoniczna.Person" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ksiazka_telefoniczna.Person.Person">
+<em class="property">class </em><code class="descclassname">ksiazka_telefoniczna.Person.</code><code class="descname">Person</code><span class="sig-paren">(</span><em>list_of_data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Person.html#Person"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Person.Person" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Definition of Class Person, which is a container for:
+first name, surname, telephone number, street, house and flat number,
+city, postal code and email.</p>
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Person.Person.__eq__">
+<code class="descname">__eq__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Person.html#Person.__eq__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Person.Person.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.Person.Person" title="ksiazka_telefoniczna.Person.Person"><em>Person</em></a>) &#8211; Another object of the class Person</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False</td>
+</tr>
+</tbody>
+</table>
+<p>Compares two objects of class Person.
+This builtin function, which overloads the parameter &#8220;=&#8221;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Person.Person.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Person.html#Person.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Person.Person.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) &#8211; points on an item or on a whole list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list_of_data</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list_of_data[item]</td>
+</tr>
+</tbody>
+</table>
+<p>The function is a getter. Gets a value from an object of class Person.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Person.Person.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Person.html#Person.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Person.Person.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self</td>
+</tr>
+</tbody>
+</table>
+<p>Definition of an iterator, which iterates through items of the list
+starting from first item in the list, thus handle value is 0.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Person.Person.__next__">
+<code class="descname">__next__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Person.html#Person.__next__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Person.Person.__next__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list_of_data[handle]</td>
+</tr>
+</tbody>
+</table>
+<p>Definition of an iterator. Increase handle by 1 or raises an exception
+of stopping an itreration.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Person.Person.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>pointer</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Person.html#Person.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Person.Person.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pointer</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) &#8211; from 0 to 7</li>
+<li><strong>value</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; as describedin diekinition of class Person</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Built in fuction, which sets in an value into list_of_data,
+poited out by the pointer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Person.Person.__str__">
+<code class="descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Person.html#Person.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Person.Person.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">All srings from list_of_data</td>
+</tr>
+</tbody>
+</table>
+<p>Builtin function, overloads the object of class Person.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Person.Person.set_table">
+<code class="descname">set_table</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Person.html#Person.set_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Person.Person.set_table" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a>) &#8211; List of parameters of the contact.</td>
+</tr>
+</tbody>
+</table>
+<p>Function sets a list of parameters to tje class attribute Table.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Person.Person.to_table_values">
+<code class="descname">to_table_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Person.html#Person.to_table_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Person.Person.to_table_values" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">SQL _TABLE&#8217;s input string</td>
+</tr>
+</tbody>
+</table>
+<p>Fuction returns _data from an object of class Person for rquirements inserting _data to a SQL _TABLE</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ksiazka_telefoniczna.Processing">
+<span id="ksiazka-telefoniczna-processing-module"></span><h2>ksiazka_telefoniczna.Processing module<a class="headerlink" href="#module-ksiazka_telefoniczna.Processing" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ksiazka_telefoniczna.Processing.Processing">
+<em class="property">class </em><code class="descclassname">ksiazka_telefoniczna.Processing.</code><code class="descname">Processing</code><a class="reference internal" href="../_modules/ksiazka_telefoniczna/Processing.html#Processing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.compare_contact">
+<code class="descname">compare_contact</code><span class="sig-paren">(</span><em>telephone_book</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.compare_contact" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>telephone_book</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="ksiazka_telefoniczna.TelephoneBook.TelephoneBook"><em>TelephoneBook</em></a>) &#8211; A TelephoneBook object to compare with telephone_book class Processing&#8217;s attribute.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of the keys of data whicha are the same</td>
+</tr>
+</tbody>
+</table>
+<p>Function compares values of two objects of class TelephoneBook.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.create_sql_db">
+<code class="descname">create_sql_db</code><span class="sig-paren">(</span><em>db_name</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.create_sql_db" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>db_name</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; Name of new database file.</td>
+</tr>
+</tbody>
+</table>
+<p>Makes new sql database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.delete_contact">
+<code class="descname">delete_contact</code><span class="sig-paren">(</span><em>telephone_book</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.delete_contact" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>telephone_book</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="ksiazka_telefoniczna.TelephoneBook.TelephoneBook"><em>TelephoneBook</em></a>) &#8211; Object of class TelephoneBook, which contains one contact.</td>
+</tr>
+</tbody>
+</table>
+<p>Function delete_contact removes one contact from telephone_book.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.delete_sql_table">
+<code class="descname">delete_sql_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.delete_sql_table" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True or False</td>
+</tr>
+</tbody>
+</table>
+<p>Removes SQL lite &#8216;db&#8217; file from the &#8216;db&#8217; directory. File name is set by variable db_name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.edit_contact">
+<code class="descname">edit_contact</code><span class="sig-paren">(</span><em>telephone_book</em>, <em>pointer</em>, <em>my_string</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.edit_contact" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>telephone_book</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="ksiazka_telefoniczna.TelephoneBook.TelephoneBook"><em>TelephoneBook</em></a>) &#8211; TelephoneBook object to be edited</li>
+<li><strong>pointer</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) &#8211; Points on an item from a table in object Person.</li>
+<li><strong>my_string</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; Desired string to be changed.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">TelephoneBook</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Function which edits contats in Peocessing class attribute telephone_book.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.edit_update">
+<code class="descname">edit_update</code><span class="sig-paren">(</span><em>telephone_book</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.edit_update" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>telephone_book</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="ksiazka_telefoniczna.TelephoneBook.TelephoneBook"><em>TelephoneBook</em></a>) &#8211; An object of class TelephoneBook, which contains contacts.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False</td>
+</tr>
+</tbody>
+</table>
+<p>Function checks if there are the same contacts on the contact list, if they are different SQL
+Lite database is being updated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.find_contact_sting">
+<code class="descname">find_contact_sting</code><span class="sig-paren">(</span><em>my_sring</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.find_contact_sting" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>my_sring</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; String to be found</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">TelephoneBook</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a TelephoneBook object with all the data that contains desired string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.from_directory_file_list">
+<code class="descname">from_directory_file_list</code><span class="sig-paren">(</span><em>file_type</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.from_directory_file_list" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param file_type:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">Could be &#8216;db&#8217;, &#8216;csv&#8217;, &#8216;json&#8217;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type file_type:</th><td class="field-body">str</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">returns:</th><td class="field-body">list of strings</td>
+</tr>
+</tbody>
+</table>
+<p>Function from_directory_file_list reads files wiht the type file_type:
+&#8216;db&#8217;, &#8216;csv&#8217;, &#8216;json&#8217; from a directory.</p>
+</div></blockquote>
+<p>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.get_csv_contacts">
+<code class="descname">get_csv_contacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.get_csv_contacts" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">TelephoneBook</td>
+</tr>
+</tbody>
+</table>
+<p>Fuction get_csv_contacts picks contacts from CSV file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.get_sql_contacts">
+<code class="descname">get_sql_contacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.get_sql_contacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function get_sql_contacts downloads data from the SQL database.
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.get_telephone_book">
+<code class="descname">get_telephone_book</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.get_telephone_book" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">TelephneBook</td>
+</tr>
+</tbody>
+</table>
+<p>Funtion is a getter, which gets the object of class TelephoneBook from
+from object of class Processing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.insert_sql_contacts">
+<code class="descname">insert_sql_contacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.insert_sql_contacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function insert_sql_contacts inserts data into SQL database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.merge_telephone_book">
+<code class="descname">merge_telephone_book</code><span class="sig-paren">(</span><em>telephone_book</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.merge_telephone_book" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>telephone_book</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="ksiazka_telefoniczna.TelephoneBook.TelephoneBook"><em>TelephoneBook</em></a>) &#8211; An object of class TelephoneBook</td>
+</tr>
+</tbody>
+</table>
+<p>:returns  TelephoneBook
+Function merges two objects of class TelephoneBook.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.new_contacts">
+<code class="descname">new_contacts</code><span class="sig-paren">(</span><em>list_of_new_user</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.new_contacts" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>list_of_new_user</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a>) &#8211; New contact data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False</td>
+</tr>
+</tbody>
+</table>
+<p>Function new_contacts makes a new contact from the list of strings.
+Comopare if the contact exists, then inserts into the database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.save_configuration">
+<code class="descname">save_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.save_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function save_configuration saves final configuration of the START_FILE, START_DB,
+TABLE_NAME and TABLE to the JSON configuration file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.set_csv_contacts">
+<code class="descname">set_csv_contacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.set_csv_contacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function set_csv_contacts exports TelephoneBook into CSV file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.set_start_db">
+<code class="descname">set_start_db</code><span class="sig-paren">(</span><em>db_name</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.set_start_db" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>db_name</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; Name of _data base which contains SQL _data</td>
+</tr>
+</tbody>
+</table>
+<p>Function is a setter of a class attribute _START_DB.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.set_start_file">
+<code class="descname">set_start_file</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.set_start_file" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_name</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; The name of CSV file.</td>
+</tr>
+</tbody>
+</table>
+<p>Function is a setter of a class attribute _START_FILE.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.set_telephone_book">
+<code class="descname">set_telephone_book</code><span class="sig-paren">(</span><em>telephone_book</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.set_telephone_book" title="Permalink to this definition">¶</a></dt>
+<dd><p>:type TelephoneBook
+:return: telephone_book: Returns an object of class TelephoneBook</p>
+<p>Function is a setter of a class attribute telephone_book.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.sort_telephone_book">
+<code class="descname">sort_telephone_book</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.sort_telephone_book" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">TelephoneBook</td>
+</tr>
+</tbody>
+</table>
+<p>Function sorts the object&#8217;s Procosseng class attribute: telephone_book.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.temporary_telephone_book">
+<code class="descname">temporary_telephone_book</code><span class="sig-paren">(</span><em>temp_list</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.temporary_telephone_book" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>temp_list</strong> &#8211; List of parameters for a new contact.</td>
+</tr>
+</tbody>
+</table>
+<p>:type list
+:return: TelephoneBook
+Function temporary_telephone_book makes a temporary object of class TelephoneBook.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.Processing.Processing.to_upper_first_character">
+<code class="descname">to_upper_first_character</code><span class="sig-paren">(</span><em>contacts_string</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.Processing.Processing.to_upper_first_character" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>contacts_string</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; Name, Surname, etc.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">str or empty str<p>Function brings the first character of the string to capital.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ksiazka_telefoniczna.TelephoneBook">
+<span id="ksiazka-telefoniczna-telephonebook-module"></span><h2>ksiazka_telefoniczna.TelephoneBook module<a class="headerlink" href="#module-ksiazka_telefoniczna.TelephoneBook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ksiazka_telefoniczna.TelephoneBook.TelephoneBook">
+<em class="property">class </em><code class="descclassname">ksiazka_telefoniczna.TelephoneBook.</code><code class="descname">TelephoneBook</code><a class="reference internal" href="../_modules/ksiazka_telefoniczna/TelephoneBook.html#TelephoneBook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></p>
+<p>Class is a collection for objects of the class Person.
+Class inherits from built-in class dict.</p>
+<dl class="method">
+<dt id="ksiazka_telefoniczna.TelephoneBook.TelephoneBook.__cmp__">
+<code class="descname">__cmp__</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook.__cmp__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook" title="ksiazka_telefoniczna.TelephoneBook.TelephoneBook"><em>TelephoneBook</em></a>) &#8211; object of the class TelephoneBook</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False</td>
+</tr>
+</tbody>
+</table>
+<p>To be implemented.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ksiazka_telefoniczna.TelephoneBook.TelephoneBook.__setitem__">
+<code class="descname">__setitem__</code><span class="sig-paren">(</span><em>key</em>, <em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#ksiazka_telefoniczna.TelephoneBook.TelephoneBook.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<a class="reference external" href="http://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) &#8211; Key in collection TelephoneBook</li>
+<li><strong>values</strong> (<a class="reference internal" href="#ksiazka_telefoniczna.Person.Person" title="ksiazka_telefoniczna.Person.Person"><em>Person</em></a>) &#8211; Values to be set in the collection TelephoneBook</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ksiazka_telefoniczna.skeleton">
+<span id="ksiazka-telefoniczna-skeleton-module"></span><h2>ksiazka_telefoniczna.skeleton module<a class="headerlink" href="#module-ksiazka_telefoniczna.skeleton" title="Permalink to this headline">¶</a></h2>
+<p>This is a skeleton file that can serve as a starting point for a Python
+console script. To run this script uncomment the following line in the
+entry_points section in setup.cfg:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>console_scripts =</dt>
+<dd>hello_world = ksiazka_telefoniczna.module:function</dd>
+</dl>
+</div></blockquote>
+<p>Then run <cite>python setup.py install</cite> which will install the command <cite>hello_world</cite>
+inside your current environment.
+Besides console scripts, the header (i.e. until _logger...) of this file can
+also be used as template for Python modules.</p>
+<p>Note: This skeleton file can be safely removed if not needed!</p>
+<dl class="function">
+<dt id="ksiazka_telefoniczna.skeleton.run">
+<code class="descclassname">ksiazka_telefoniczna.skeleton.</code><code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksiazka_telefoniczna/skeleton.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ksiazka_telefoniczna.skeleton.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function run opens a console window with root menu of Książka Telefoniczna.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ksiazka_telefoniczna">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ksiazka_telefoniczna" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ksiazka_telefoniczna package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-ksiazka_telefoniczna.Console">ksiazka_telefoniczna.Console module</a></li>
+<li><a class="reference internal" href="#module-ksiazka_telefoniczna.GetData">ksiazka_telefoniczna.GetData module</a></li>
+<li><a class="reference internal" href="#module-ksiazka_telefoniczna.OpenFromFile">ksiazka_telefoniczna.OpenFromFile module</a></li>
+<li><a class="reference internal" href="#module-ksiazka_telefoniczna.OpenFromSQLite">ksiazka_telefoniczna.OpenFromSQLite module</a></li>
+<li><a class="reference internal" href="#module-ksiazka_telefoniczna.Person">ksiazka_telefoniczna.Person module</a></li>
+<li><a class="reference internal" href="#module-ksiazka_telefoniczna.Processing">ksiazka_telefoniczna.Processing module</a></li>
+<li><a class="reference internal" href="#module-ksiazka_telefoniczna.TelephoneBook">ksiazka_telefoniczna.TelephoneBook module</a></li>
+<li><a class="reference internal" href="#module-ksiazka_telefoniczna.skeleton">ksiazka_telefoniczna.skeleton module</a></li>
+<li><a class="reference internal" href="#module-ksiazka_telefoniczna">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">Modules</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">Modules</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/ksiazka_telefoniczna.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dariusz Luczynski.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="../_sources/api/ksiazka_telefoniczna.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
