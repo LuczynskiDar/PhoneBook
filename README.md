@@ -2,9 +2,9 @@
 
 Książka Telefoniczna - program do przechowywania kontaktów
 
-[PhoneBook modules](https://github.com/LuczynskiDar/PhoneBook/blob/master/Img/PhoneBook_modules.PNG)
+![PhoneBook modules](https://github.com/LuczynskiDar/PhoneBook/blob/master/Img/PhoneBook_modules.PNG)
 
-[UML diagram](https://github.com/LuczynskiDar/PhoneBook/blob/master/Img/Uml.png)
+![UML diagram](https://github.com/LuczynskiDar/PhoneBook/blob/master/Img/Uml.png)
 
 Książka Telefoniczna
 Książka Telefoniczna, a phone book, is a qualification project, from high-level programming languages course.
