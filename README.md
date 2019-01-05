@@ -23,9 +23,12 @@ Phone book from the polish context menu, picks up new data and keeps it in local
 
 ![PhoneBook modules](https://github.com/LuczynskiDar/PhoneBook/blob/master/Img/PhoneBook_modules.PNG)
 
+- Database folder, [/ksiazka_telefoniczna/db](https://github.com/LuczynskiDar/PhoneBook/tree/master/ksiazka_telefoniczna/db)
+- Csv folder, [/ksiazka_telefoniczna/csv](https://github.com/LuczynskiDar/PhoneBook/tree/master/ksiazka_telefoniczna/csv)
+- Configuration folder, [/ksiazka_telefoniczna/cfg](https://github.com/LuczynskiDar/PhoneBook/tree/master/ksiazka_telefoniczna/cfg)
 - [Console](https://github.com/LuczynskiDar/PhoneBook/blob/master/ksiazka_telefoniczna/Console.py)
 
-Console GUI, root menu :
+**Console GUI, root menu :**
 
 ``` console gui
 1. Dodaj nowy kontakt (Add new contact)
