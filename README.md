@@ -17,6 +17,14 @@ Phone book from the polish context menu, picks up new data and keeps it in local
 - Create docs.
 - Unit tests are not required.
 
+#### Modules
+
+- [HTML docummentation available after download](https://github.com/LuczynskiDar/PhoneBook/tree/master/docs/html)
+
+![PhoneBook modules](https://github.com/LuczynskiDar/PhoneBook/blob/master/Img/PhoneBook_modules.PNG)
+
+- [Console](https://github.com/LuczynskiDar/PhoneBook/blob/master/ksiazka_telefoniczna/Console.py)
+
 Console GUI, root menu :
 
 ``` console gui
@@ -27,21 +35,15 @@ Console GUI, root menu :
 0. Wyjdź z programu (Exit)
 ```
 
-#### Create Project docs
+- [Processing](https://github.com/LuczynskiDar/PhoneBook/blob/master/ksiazka_telefoniczna/Processing.py)
+- [GetData](https://github.com/LuczynskiDar/PhoneBook/blob/master/ksiazka_telefoniczna/GetData.py)
+- [OpenFromFile](https://github.com/LuczynskiDar/PhoneBook/blob/master/ksiazka_telefoniczna/OpenFromFile.py)
+- [OpenFromSQLite](https://github.com/LuczynskiDar/PhoneBook/blob/master/ksiazka_telefoniczna/OpenFromSQLite.py)
+- [TelephoneBook](https://github.com/LuczynskiDar/PhoneBook/blob/master/ksiazka_telefoniczna/TelephoneBook.py)
+- [Person](https://github.com/LuczynskiDar/PhoneBook/blob/master/ksiazka_telefoniczna/Person.py)
 
-* [HTML docummentation available after download](https://github.com/LuczynskiDar/PhoneBook/tree/master/docs/html)
-![PhoneBook modules](https://github.com/LuczynskiDar/PhoneBook/blob/master/Img/PhoneBook_modules.PNG)
+#### Relation betweenthe modules
 
-Książka Telefoniczna - program do przechowywania kontaktów
-
-
+- **UML Diagram**
 
 ![UML diagram](https://github.com/LuczynskiDar/PhoneBook/blob/master/Img/Uml.png)
-
-Książka Telefoniczna
-Książka Telefoniczna, a phone book, is a qualification project, from high-level programming languages course.
-
-
-
-Note
-This project has been set up using PyScaffold 2.5.3. For details and usage information on PyScaffold see http://pyscaffold.readthedocs.org/.
