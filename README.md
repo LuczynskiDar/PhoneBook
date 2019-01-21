@@ -50,3 +50,6 @@ Phone book from the polish context menu, picks up new data and keeps it in local
 - **UML Diagram**
 
 ![UML diagram](https://github.com/LuczynskiDar/PhoneBook/blob/master/Img/Uml.png)
+
+ git push -u origin gh-pages
+ git push --set-upstream origin gh-pages
