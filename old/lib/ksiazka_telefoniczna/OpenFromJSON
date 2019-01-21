@@ -1,7 +1,0 @@
-
-import json
-
-class OpenFromJSON:
-
-    def __init__(self):
-        pass
